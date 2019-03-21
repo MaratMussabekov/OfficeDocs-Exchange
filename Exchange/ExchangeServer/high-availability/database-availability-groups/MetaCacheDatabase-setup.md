@@ -1,15 +1,17 @@
 ---
-title: "MetaCacheDatabase (MCDB) setup"
-ms.author: dmaguire
+localization_priority: Normal
+description: 'Summary: Learn about the MetaCacheDatabase (MCDB) feature in Exchange Server 2019, and how to configure it in your organization.'
+ms.topic: overview
 author: msdmaguire
-manager: serdars
+ms.author: dmaguire
+monikerRange: exchserver-2019
+title: MetaCacheDatabase (MCDB) setup
+ms.collection: exchange-server
 ms.reviewer: toklima
 ms.audience: ITPro
-ms.topic: overview
 ms.prod: exchange-server-it-pro
-localization_priority: Normal
-description: "Summary: Learn about the MetaCacheDatabase (MCDB) feature in Exchange Server 2019, and how to configure it in your organization."
-monikerRange: "exchserver-2019"
+manager: serdars
+
 ---
 
 # MetaCacheDatabase (MCDB) setup
@@ -75,7 +77,7 @@ This parameter sets the Active Directory state for the DAG object. Full replicat
 | SSDSizeInBytes     | True       | The capacity in bytes of each SSD in the server to be used for MCDB. |
 | SSDCountPerServer  | True       | The count of SSD devices to be utilize for MCDB in each server.      |
 
-**Scope**: 
+**Scope**:
 
 - **DAG**: `ConfigureMCDBPrerequisite` operates on a DAG object.
 
@@ -104,7 +106,7 @@ This parameter sets the local state on each DAG member to allow/disallow MCDB po
 | ServerName         | True       | Specifies the server to enable MetaCacheDatabase on.                 |
 | ForceFailover      | Optional   | This Boolean switch can be utilized to cause all databases on a server to fail over. This is required to make all configuration changes take effect and to begin utilizing MCDB after mount points and database instances have been successfully created in [3. Run Manage-MCDB -ConfigureMCDBOnServer](#3-run-configuremcdbonserver). It is also needed to disable SSD acceleration.      |
 
-**Scope**: 
+**Scope**:
 
 - **Server**: `ServerAllowMCDB` has to be executed on each server in the DAG.
 
@@ -132,7 +134,7 @@ This parameter identifies unformatted SSD devices and formats them, and also cre
 | ServerName         | True       | Specifies the server to identify unformatted SSD devices and create mount points on.|
 | SSDSizeInBytes     | True       | This is the capacity, in bytes, of each SSD in the server to be used for MCDB.      |
 
-**Scope**: 
+**Scope**:
 
 - **Server**: `ConfigureMCDBOnServer` has to be executed on each server in the DAG.
 
@@ -161,3 +163,4 @@ Use `Get-MailboxDatabaseCopyStatus` to query the state of the MCDB instances. Th
 | Offline        | Errors at the logical level, for example missing MCDB instances.                                                                     |
 | Initializing   | Transient state, the system is determining what other state it should be in.                                                         |
 | Healthy        | Ready to serve requests.                                                                                                             |
+

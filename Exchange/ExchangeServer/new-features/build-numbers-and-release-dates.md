@@ -1,22 +1,24 @@
 ---
-title: "Exchange Server build numbers and release dates"
-ms.author: chrisda
-author: chrisda
-manager: serdars
-ms.date: 
-ms.audience: ITPro
-ms.topic: overview
-ms.prod: exchange-server-it-pro
 localization_priority: Normal
+description: 'Summary: Learn about build numbers and release dates for current and past versions of Exchange Server.'
+ms.topic: overview
+author: chrisda
+ms.author: chrisda
 ms.assetid: 6a8091d0-4f19-4ae7-9e44-fd1c9f5fbe19
-description: "Summary: Learn about build numbers and release dates for current and past versions of Exchange Server."
+ms.date:
+title: Exchange Server build numbers and release dates
+ms.collection: exchange-server
+ms.audience: ITPro
+ms.prod: exchange-server-it-pro
+manager: serdars
+
 ---
 
 # Exchange Server build numbers and release dates
 
 You can use the information in this topic to verify the version of Exchange that is running in your organization.
 
-This topic is organized in sections that correspond to the major releases of Exchange. Each section lists build numbers for each Service Pack (SP), Cumulative Update (CU), or Update Rollup (RU) of the specific Exchange release. 
+This topic is organized in sections that correspond to the major releases of Exchange. Each section lists build numbers for each Service Pack (SP), Cumulative Update (CU), or Update Rollup (RU) of the specific Exchange release.
 
 Download links for the latest CU, RU, and SP for Exchange Server 2019, Exchange Server 2016, Exchange Server 2013, Exchange Server 2010, and Exchange Server 2007 are included.
 
@@ -191,7 +193,7 @@ The tables in this section provide build numbers and general release dates for e
 To view the build number of an Exchange 2007 server, run the following command in the Exchange Management Shell:
 
 ```
-Get-Command ExSetup | ForEach {$_.FileVersionInfo} 
+Get-Command ExSetup | ForEach {$_.FileVersionInfo}
 ```
 
 |**Product name**|**Release date**|**Build number (short format)**|**Build number (long format)**|
@@ -265,9 +267,9 @@ The following table lists the build numbers and general release dates for each v
 |Exchange Server 2003 post-SP2|August 2008|6.5.7654.4|
 |Exchange Server 2003 post-SP2|March 2008|6.5.7653.33|
 |Exchange Server 2003 SP2|October 19, 2005|6.5.7683|
-|Exchange Server 2003 SP1|May25, 2004|6.5.7226| 
+|Exchange Server 2003 SP1|May25, 2004|6.5.7226|
 |Exchange Server 2003|September 28, 2003|6.5.6944|
- 
+
 ## Exchange 2000 Server
 
 The following table lists the build numbers and general release dates for each version of Microsoft Exchange 2000 Server. To view the build number of Exchange 2000 Server, open the **Properties** dialog box of the server object.
@@ -283,7 +285,7 @@ The following table lists the build numbers and general release dates for each v
 |Exchange 2000 Server SP2|November 29, 2001|6.0.5762|
 |Exchange 2000 Server SP1|June 21, 2001|6.0.4712|
 |Exchange 2000 Server|November 29, 2000|6.0.4417|
- 
+
 
 ## Exchange Server 5.5
 
@@ -296,7 +298,7 @@ The following table lists the build numbers and general release dates for each v
 |Exchange Server version 5.5 SP2|December 23, 1998|5.5.2448|
 |Exchange Server version 5.5 SP1|August 5, 1998|5.5.2232|
 |Exchange Server version 5.5|February 3, 1998|5.5.1960|
- 
+
 
 ## Exchange Server 5.0
 
@@ -318,3 +320,4 @@ The following table lists the build numbers and general release dates for each v
 |Exchange Server 4.0 SP2|July 19, 1996|4.0.993|
 |Exchange Server 4.0 SP1|May 1, 1996|4.0.838|
 |Exchange Server 4.0 Standard Edition|June 11, 1996|4.0.837|
+

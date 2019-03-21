@@ -1,15 +1,19 @@
 ---
-title: "Manage remote domains in Exchange Online"
-ms.author: chrisda
-author: chrisda
-manager: serdars
-ms.date:
-ms.audience: ITPro
-ms.topic: article
-ms.service: exchange-online
 localization_priority: Normal
+description: Admins can learn how to add, modify, and remove remote domains (message formatting settings for external domains) in Exchange Online.
+ms.topic: article
+author: chrisda
+ms.author: chrisda
 ms.assetid: d3dca7b0-c84c-429a-9698-0e92a95a0985
-description: "Admins can learn how to add, modify, and remove remote domains (message formatting settings for external domains) in Exchange Online."
+ms.date: 
+title: Manage remote domains in Exchange Online
+ms.collection: 
+- exchange-online
+- M365-email-calendar
+ms.audience: ITPro
+ms.service: exchange-online
+manager: serdars
+
 ---
 
 # Manage remote domains in Exchange Online
@@ -121,49 +125,49 @@ Set-RemoteDomain -Identity <Name> [-AllowedOOfType <External | InternalLegacy | 
 This example disables automatic replies, automatic forwarding, and out-of-office replies to recipients at all remote domains that aren't specified with their own remote domain.
 
 ```
-Set-Set-RemoteDomain -Identity  Default -AutoReplyEnabled $false -AutoForwardEnabled $false -AllowedOOFType None
+Set-RemoteDomain -Identity  Default -AutoReplyEnabled $false -AutoForwardEnabled $false -AllowedOOFType None
 ```
 
 This example sends internal out of office replies to users at the remote domain named Contoso.
 
 ```
-Set-Set-RemoteDomain -Identity Contoso -AllowedOOFType InternalLegacy
+Set-RemoteDomain -Identity Contoso -AllowedOOFType InternalLegacy
 ```
 
 This example disables prevents delivery reports and non-delivery reports from being sent to users at Contoso.
 
 ```
-Set-Set-RemoteDomain -Identity Contoso -DeliveryReportEnabled $false -NDREnabled $false
+Set-RemoteDomain -Identity Contoso -DeliveryReportEnabled $false -NDREnabled $false
 ```
 
 This example sends all messages to Contoso using Transport Neutral Encapsulation Formation (TNEF) encoding, rather than MIME encoding. This preserves Rich Text format in messages.
 
 ```
-Set-Set-RemoteDomain -Identity Contoso -TNEFEnabled $true
+Set-RemoteDomain -Identity Contoso -TNEFEnabled $true
 ```
 
 This example sends all messages to Contoso using MIME encoding, which means that all RTF messages are always converted to HTML or plain text.
 
 ```
-Set-Set-RemoteDomain -Identity Contoso -TNEFEnabled $false
+Set-RemoteDomain -Identity Contoso -TNEFEnabled $false
 ```
 
 This example uses the message format settings the user has defined in Outlook or Outlook Web App for encoding messages.
 
 ```
-Set-Set-RemoteDomain -Identity Contoso -TNEFEnabled $null
+Set-RemoteDomain -Identity Contoso -TNEFEnabled $null
 ```
 
 This example uses the Korean (ISO) character set for MIME messages sent to Contoso.
 
 ```
-Set-Set-RemoteDomain -Identity Contoso -CharacterSet iso-2022-kr
+Set-RemoteDomain -Identity Contoso -CharacterSet iso-2022-kr
 ```
 
 This example specifies using the Unicode character set for non-MIME messages sent to Contoso.
 
 ```
-Set-Set-RemoteDomain -Identity Contoso -NonMimeCharacterSet utf-8
+Set-RemoteDomain -Identity Contoso -NonMimeCharacterSet utf-8
 ```
 
 For detailed syntax and parameter information, see [Set-RemoteDomain](https://technet.microsoft.com/library/4738bf25-39b8-4433-bd64-1d60252c2832.aspx).
@@ -225,3 +229,4 @@ To verify that you've successfully removed a remote domain, do either of the fol
     ```
     Get-RemoteDomain
     ```
+

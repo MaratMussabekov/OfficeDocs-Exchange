@@ -1,18 +1,22 @@
 ---
-title: "Fix issues with printers, scanners, and LOB applications that send email using Office 365"
-ms.author: chrisda
-author: chrisda
-manager: serdars
-ms.topic: troubleshooting
-ms.service: exchange-online
 localization_priority: Normal
-ms.custom: MiniMaven
+description: 'Fix issues with printers, scanners, and line of business applications that use Office 365 to send email. '
+ms.topic: troubleshooting
+author: chrisda
+ms.author: chrisda
+ms.assetid: c75542a8-c792-42c0-a8c5-291df987512d
+title: Fix issues with printers, scanners, and LOB applications that send email using Office 365
+ms.collection: 
+- exchange-online
+- M365-email-calendar
 search.appverid:
 - BCS160
 - MET150
 - MOE150
-ms.assetid: c75542a8-c792-42c0-a8c5-291df987512d
-description: "Fix issues with printers, scanners, and line of business applications that use Office 365 to send email. "
+ms.custom: MiniMaven
+ms.service: exchange-online
+manager: serdars
+
 ---
 
 # Fix issues with printers, scanners, and LOB applications that send email using Office 365
@@ -93,7 +97,7 @@ Below are the three configuration options to help you identify which one is in u
 
     **220 BY1PR10CA0041.outlook.office365.com Microsoft ESMTP MAIL Service ready at Mon, 1 Jun 2015 12:00:00 +0000**
 
-5. If you can't connect to Office 365, your network firewall or Internet Service Provider (IDP) might have blocked port 587 or 25. Correct this so you can send email from your printer.
+5. If you can't connect to Office 365, your network firewall or Internet Service Provider (ISP) might have blocked port 587 or 25. Correct this so you can send email from your printer.
 
 6. If none of these issues applies to your device, it might not meet requirements for Transport Layer Security (TLS) encryption. Your device must support TLS version 1.0 or above. Update the firmware on the device to solve this, or try one of the other configuration options where TLS is optional.
 
@@ -169,4 +173,5 @@ Office 365 SMTP relay requires your device to send email from a static IP addres
 ## See also
 
 [How to configure IIS for relay with Office 365](how-to-configure-iis-for-relay-with-office-365.md)
+
 

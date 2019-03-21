@@ -1,14 +1,18 @@
 ---
-title: "Disable Basic authentication in Exchange Online"
-ms.author: chrisda
-author: chrisda
-manager: serdars
-ms.audience: Admin
-ms.topic: article
-ms.service: exchange-online
 localization_priority: Normal
+ms.author: chrisda
+manager: serdars
+ms.topic: article
+author: chrisda
+ms.service: exchange-online
 ms.assetid: bba2059a-7242-41d0-bb3f-baaf7ec1abd7
-description: "Learn how to block Basic auth for client authentication in Exchange Online"
+ms.collection: 
+- exchange-online
+- M365-email-calendar
+description: Learn how to block Basic auth for client authentication in Exchange Online
+ms.audience: Admin
+title: Disable Basic authentication in Exchange Online
+
 ---
 
 # Disable Basic authentication in Exchange Online
@@ -112,14 +116,13 @@ For email clients and apps that don't support modern authentication, you need to
 
 |**Client**|**Protocols and services**|
 |:-----|:-----|
-|Outlook 2013 and later|• Autodiscover <br/>• Exchange Web Services (EWS) <br/>• MAPI over HTTP <br/>• Outlook Anywhere (RPC over HTTP) <br/>• Offline Address Book (OAB)|
-|Outlook for Mac 2016|• Autodiscover <br/>• EWS|
-|Exchange ActiveSync clients (for example, iOS Mail 11.3.1)|• Autodiscover <br/>• ActiveSync (EAS)|
+|Older EWS clients|• Autodiscover <br/>• EWS|
+|Older ActiveSync clients|• Autodiscover <br/>• ActiveSync|
 |POP clients|• POP3 <br/>• Authenticated SMTP|
 |IMAP clients|• IMAP4 <br/>• Authenticated SMTP|
 
 > [!NOTE]
-> IBlocking Basic authentication will block app passwords in Exchange Online. For more information about app passwords, see [Create an app password for Office 365](https://support.office.com/article/3e7c860f-bda4-4441-a618-b53953ee1183.aspx).
+> Blocking Basic authentication will block app passwords in Exchange Online. For more information about app passwords, see [Create an app password for Office 365](https://support.office.com/article/3e7c860f-bda4-4441-a618-b53953ee1183.aspx).
 
 ### What do you need to know before you begin?
 
@@ -155,7 +158,7 @@ This example creates an authentication policy named Block Basic Auth.
 New-AuthenticationPolicy -Name "Block Basic Auth"
 ```
 
-For detailed syntax and parameter information, see [New-AuthenticationPolicy](https://docs.microsoft.com/powershell/module/exchange/organization/set-authenticationpolicy).
+For detailed syntax and parameter information, see [New-AuthenticationPolicy](https://docs.microsoft.com/powershell/module/exchange/organization/new-authenticationpolicy).
 
  **Notes**:
 
@@ -456,3 +459,4 @@ New-AuthenticationPolicy -Name "Marketing Policy" -AllowBasicAuthActiveSync $fal
 $users = Get-ADGroupMember "Marketing Department"
 foreach ($user in $users) {Set-User -Identity $user.SamAccountName -AuthenticationPolicy "Marketing Policy"}
 ```
+

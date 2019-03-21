@@ -1,15 +1,17 @@
 ---
-title: "Manage on-premises mailbox moves in Exchange Server"
-ms.author: dmaguire
-author: msdmaguire
-manager: serdars
-ms.date: 
-ms.audience: ITPro
-ms.topic: article
-ms.prod: exchange-server-it-pro
 localization_priority: Normal
+description: 'Summary: Learn how to move the primary mailbox and the associated archive to the same database or to separate ones in Exchange Server.'
+ms.topic: article
+author: msdmaguire
+ms.author: dmaguire
 ms.assetid: 1691b658-f5af-49c6-9170-5c3cb66c7306
-description: "Summary: Learn how to move the primary mailbox and the associated archive to the same database or to separate ones in Exchange Server."
+ms.date:
+title: Manage on-premises mailbox moves in Exchange Server
+ms.collection: exchange-server
+ms.audience: ITPro
+ms.prod: exchange-server-it-pro
+manager: serdars
+
 ---
 
 # Manage on-premises mailbox moves in Exchange Server
@@ -57,7 +59,7 @@ To create new local move requests in the Exchange Management Shell, you only use
 
 1. In the EAC, go to **Recipients** \> **Migration** \> click **Add** ![Add icon](../../media/ITPro_EAC_AddIcon.png), and then select **Move to a different database**.
 
-2. The **New local mailbox move** wizard opens. On the **Select users** page, configure one of these options: 
+2. The **New local mailbox move** wizard opens. On the **Select users** page, configure one of these options:
 
 - **Select the users that you want to move**: Select one or more users:
 
@@ -77,7 +79,7 @@ To create new local move requests in the Exchange Management Shell, you only use
 
     When you're finished, click **Next**.
 
-3. On the **Move configuration** page, configure these settings: 
+3. On the **Move configuration** page, configure these settings:
 
   - **New migration batch name**: Enter a descriptive name for the mailbox move operation.
 
@@ -105,7 +107,7 @@ To create new local move requests in the Exchange Management Shell, you only use
 
     When you're finished, click **Next**.
 
-4. On the **Start the batch** page, configure these settings: 
+4. On the **Start the batch** page, configure these settings:
 
   - **After the batch is complete, a report will be sent to the following recipients.**: The default value is the account that you're using to move the mailboxes. Click **Browse** to add or remove recipients. When you're finished, click **OK**.
 
@@ -219,7 +221,7 @@ This example creates a migration batch with these settings:
 
 - **When to start the migration**: Immediately, because we're using the _AutoStart_ switch. If we don't use this switch, we need to use the **Start-MigrationBatch** cmdlet to start the migration batch after it's created.
 
-- **When to complete the migration**: After the mailboxes complete their initial synchronization, because we're using the _AutoComplete_ switch. If we don't use this switch, we need to use the **Complete-MigrationBatch** cmdlet to start the migration batch after it's created 
+- **When to complete the migration**: After the mailboxes complete their initial synchronization, because we're using the _AutoComplete_ switch. If we don't use this switch, we need to use the **Complete-MigrationBatch** cmdlet to start the migration batch after it's created
 
 - **Priority**: `Normal`, because we aren't using the _Priority_ parameter.
 
@@ -241,13 +243,13 @@ To verify that you've successfully created a local move request, do any of these
 
 - In the EAC, click the notification viewer ![Notifications icon](../../media/6f2591b8-d0dc-4665-ab0b-b91a549e5b37.png) to view the status of the request.
 
-- In the Exchange Management Shell, replace _\<MailboxIdentity\>_ with the name, email address, or alias of the mailbox, and run this command to verify the basic property values: 
+- In the Exchange Management Shell, replace _\<MailboxIdentity\>_ with the name, email address, or alias of the mailbox, and run this command to verify the basic property values:
 
   ```
   Get-MoveRequest -Identity <MailboxIdentity> | Format-List DisplayName,Alias,Status,*database*
   ```
 
-- In the Exchange Management Shell, replace _\<BatchName\>_ with the batch name value of the move request, and run this command to verify the basic property values: 
+- In the Exchange Management Shell, replace _\<BatchName\>_ with the batch name value of the move request, and run this command to verify the basic property values:
 
   ```
   Get-MoveRequest -BatchName <BatchName> | Format-List DisplayName,Alias,Status,*database*
@@ -255,13 +257,13 @@ To verify that you've successfully created a local move request, do any of these
 
     **Note**: If you created the move request in the EAC, the batch name value is `MigrationService:<BatchNameValueFromTheEAC>`.
 
-- If you created the move request in the EAC, replace _\<BatchName\>_ with the batch name value you specified, and run this command in the Exchange Management Shell to verify summary information about all mailboxes in the move: 
+- If you created the move request in the EAC, replace _\<BatchName\>_ with the batch name value you specified, and run this command in the Exchange Management Shell to verify summary information about all mailboxes in the move:
 
   ```
   Get-MigrationUserStatistics -BatchId <BatchName>
   ```
 
-- If you created the move request in the EAC, replace _\<EmailAddress\>_ with the email address of the moved mailbox, and run this command to see detailed information about the specified mailbox: 
+- If you created the move request in the EAC, replace _\<EmailAddress\>_ with the email address of the moved mailbox, and run this command to see detailed information about the specified mailbox:
 
   ```
   Get-MigrationUserStatistics -Identity <EmailAddress> | Format-List
@@ -278,7 +280,7 @@ For an example of how to use the Exchange Management Shell to display a migratio
 This example configures the migration endpoint, and then creates a cross-forest batch move from the source forest to the target forest using a .csv file.
 
 ```
-New-MigrationEndpoint -Name Fabrikam -ExchangeRemote -Autodiscover -EmailAddress tonysmith@fabrikam.com -Credentials (Get-Credential fabrikam\tonysmith) 
+New-MigrationEndpoint -Name Fabrikam -ExchangeRemote -Autodiscover -EmailAddress tonysmith@fabrikam.com -Credentials (Get-Credential fabrikam\tonysmith)
 $csvData=[System.IO.File]::ReadAllBytes("C:\Users\Administrator\Desktop\batch.csv")
 New-MigrationBatch -CSVData $csvData -Timezone "Pacific Standard Time" -Name FabrikamMerger -SourceEndpoint Fabrikam -TargetDeliveryDomain "mail.contoso.com"
 ```
@@ -304,5 +306,6 @@ To verify that you have successfully completed your migration, do the following:
   ```
 
 For more information, see [Get-MigrationUserStatistics](http://technet.microsoft.com/library/b771bb31-7f5a-462f-b5e2-ce49fde9bfe5.aspx).
+
 
 
